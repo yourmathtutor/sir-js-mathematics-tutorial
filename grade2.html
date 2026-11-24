@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 2 Mathematics | Sir J's</title>
+
+<style>
+:root {
+  --navy: #102D55;
+  --blue: #183D68;
+  --gold: #D5A947;
+  --light: #F4F7FB;
+  --text: #263445;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+  background: var(--navy);
+}
+
+nav {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.brand-name small {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+  background: var(--navy);
+  color: white;
+  padding: 60px 0;
+}
+
+.breadcrumb {
+  color: var(--gold);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 46px);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 700px;
+  color: #E0E8F2;
+}
+
+.hero-label {
+  display: inline-block;
+  margin-top: 22px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 7px 14px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* LEARNING AREAS */
+
+section {
+  padding: 65px 0;
+}
+
+.learning-section,
+.resource-section {
+  background: var(--light);
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 29px;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #687789;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.topic-card {
+  background: white;
+  border: 1px solid #E1E6ED;
+  border-radius: 9px;
+  padding: 24px;
+  transition: 0.2s;
+}
+
+.topic-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.topic-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.topic-card h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.topic-card p {
+  color: #687789;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.topic-card a {
+  color: var(--blue);
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* LESSONS */
+
+.lesson-section {
+  background: white;
+}
+
+.lesson-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.lesson-content h2 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.lesson-content h3 {
+  color: var(--navy);
+  margin: 25px 0 10px;
+}
+
+.lesson-content p {
+  margin-bottom: 12px;
+}
+
+.example-box {
+  background: var(--light);
+  border-left: 5px solid var(--gold);
+  padding: 20px;
+  margin: 18px 0;
+  border-radius: 5px;
+}
+
+.example-box strong {
+  color: var(--navy);
+}
+
+.math-expression {
+  font-size: 24px;
+  color: var(--navy);
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.practice-list {
+  background: var(--light);
+  padding: 22px 25px 22px 45px;
+  border-radius: 8px;
+}
+
+.practice-list li {
+  margin-bottom: 12px;
+}
+
+/* OTHER RESOURCES */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.resource-card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #E1E6ED;
+  border-radius: 9px;
+  scroll-margin-top: 20px;
+}
+
+.resource-card h3 {
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.resource-card p {
+  color: #687789;
+  font-size: 14px;
+}
+
+.resource-card a {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+footer p {
+  color: #DCE5F0;
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 0;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .topic-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+  <div class="container">
+    <nav>
+
+      <a href="index.html" class="brand">
+        <img src="sir-js-logo.png"
+             alt="Sir J's Mathematics Tutorial Logo">
+
+        <span class="brand-name">
+          SIR J'S
+          <small>MATHEMATICS TUTORIAL</small>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="elementary.html">Elementary</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> /
+      <a href="elementary.html">Elementary</a> /
+      Grade 2
+    </div>
+
+    <h1>Grade 2 Mathematics</h1>
+
+    <p>
+      Strengthen your mathematical understanding through
+      numbers, operations, measurement, shapes, patterns,
+      and practical problem solving.
+    </p>
+
+    <span class="hero-label">ELEMENTARY LEVEL · GRADE 2</span>
+
+  </div>
+</section>
+
+<!-- LEARNING AREAS -->
+
+<section class="learning-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Explore Learning Areas</h2>
+      <p>Select a learning area to explore its lessons and activities.</p>
+    </div>
+
+    <div class="topic-grid">
+
+      <div class="topic-card">
+        <div class="topic-icon">🔢</div>
+        <h3>Numbers and Place Value</h3>
+        <p>Read, write, compare, and understand the value of digits in numbers.</p>
+        <a href="#numbers">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">➕</div>
+        <h3>Addition</h3>
+        <p>Add numbers using place value, regrouping, and practical examples.</p>
+        <a href="#addition">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">➖</div>
+        <h3>Subtraction</h3>
+        <p>Subtract numbers and solve problems involving differences.</p>
+        <a href="#subtraction">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">✖️</div>
+        <h3>Introduction to Multiplication</h3>
+        <p>Understand multiplication through equal groups and repeated addition.</p>
+        <a href="#multiplication">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📏</div>
+        <h3>Measurement</h3>
+        <p>Explore length, height, mass, and comparisons of objects.</p>
+        <a href="#measurement">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🕒</div>
+        <h3>Time and Money</h3>
+        <p>Read clocks, recognize coins and bills, and solve everyday problems.</p>
+        <a href="#time-money">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🔷</div>
+        <h3>Shapes and Patterns</h3>
+        <p>Identify shapes, describe their properties, and recognize patterns.</p>
+        <a href="#shapes">Explore lesson →</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🧩</div>
+        <h3>Problem Solving</h3>
+        <p>Apply mathematical ideas to simple real-life situations.</p>
+        <a href="#problem-solving">Explore lesson →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE LESSON: PLACE VALUE -->
+
+<section class="lesson-section" id="numbers">
+  <div class="container">
+    <div class="lesson-content">
+
+      <h2>Lesson 1: Understanding Place Value</h2>
+
+      <p>
+        Place value tells us the value of a digit based on
+        its position in a number.
+      </p>
+
+      <h3>Ones and Tens</h3>
+
+      <p>
+        A two-digit number has a tens place and a ones place.
+        Ten ones make one ten.
+      </p>
+
+      <div class="example-box">
+        <strong>Example: Understanding the number 24</strong>
+
+        <div class="math-expression">24 = 2 tens + 4 ones</div>
+
+        <p>
+          The digit 2 represents 20, while the digit 4 represents 4.
+        </p>
+
+        <strong>Therefore: 20 + 4 = 24</strong>
+      </div>
+
+      <h3>Worked Example</h3>
+
+      <p>What is the value of the digit 5 in 57?</p>
+
+      <div class="example-box">
+        <div class="math-expression">57 = 50 + 7</div>
+        <strong>Answer: 50</strong>
+        <p>The digit 5 is in the tens place, so its value is 50.</p>
+      </div>
+
+      <h3>Practice Exercise</h3>
+
+      <ol class="practice-list">
+        <li>Write 36 as tens and ones.</li>
+        <li>What is the value of 4 in 48?</li>
+        <li>How many tens are there in 72?</li>
+        <li>Which is greater: 56 or 65?</li>
+        <li>Write the number represented by 3 tens and 8 ones.</li>
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+<!-- OTHER LEARNING AREAS -->
+
+<section class="resource-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>More Mathematics Lessons</h2>
+      <p>Continue exploring the other learning areas.</p>
+    </div>
+
+    <div class="resource-grid">
+
+      <div class="resource-card" id="addition">
+        <h3>➕ Addition</h3>
+        <p>
+          Learn to combine quantities and add two-digit
+          numbers using place value and regrouping.
+        </p>
+        <a href="#numbers">Review place value →</a>
+      </div>
+
+      <div class="resource-card" id="subtraction">
+        <h3>➖ Subtraction</h3>
+        <p>
+          Understand taking away, finding differences,
+          and solving subtraction problems.
+        </p>
+        <a href="#numbers">Review place value →</a>
+      </div>
+
+      <div class="resource-card" id="multiplication">
+        <h3>✖️ Introduction to Multiplication</h3>
+        <p>
+          Discover how equal groups and repeated addition
+          help us understand multiplication.
+        </p>
+        <div class="math-expression">3 + 3 + 3 = 9</div>
+        <p>Three groups of three make nine.</p>
+      </div>
+
+      <div class="resource-card" id="measurement">
+        <h3>📏 Measurement</h3>
+        <p>
+          Compare the length, height, and mass of objects
+          using appropriate units.
+        </p>
+      </div>
+
+      <div class="resource-card" id="time-money">
+        <h3>🕒 Time and Money</h3>
+        <p>
+          Practice reading time and identifying
+          the value of Philippine coins and bills.
+        </p>
+      </div>
+
+      <div class="resource-card" id="shapes">
+        <h3>🔷 Shapes and Patterns</h3>
+        <p>
+          Explore basic geometric shapes and
+          identify repeating patterns.
+        </p>
+      </div>
+
+      <div class="resource-card" id="problem-solving">
+        <h3>🧩 Problem Solving</h3>
+        <p>
+          Apply addition, subtraction, and other
+          mathematical concepts to everyday situations.
+        </p>
+      </div>
+
+      <div class="resource-card">
+        <h3>🎥 Video Lessons</h3>
+        <p>
+          Video tutorials will be organized here
+          as resources become available.
+        </p>
+        <a href="index.html#learning">Visit Learning Hub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2026 Sir J's Mathematics Tutorial.</p>
+  <p>Better Understanding. Brighter Future.</p>
+</footer>
+
+</body>
+</html>
