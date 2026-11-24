@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sir J's Mathematics Tutorial</title>
+
+  <style>
+    :root {
+      --navy: #102D55;
+      --blue: #183D68;
+      --gold: #D5A947;
+      --white: #FFFFFF;
+      --light: #F5F7FA;
+      --text: #263445;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      background: var(--navy);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .brand-symbol {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      background: white;
+      color: var(--navy);
+      border-radius: 8px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-button {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 10px 17px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: var(--navy);
+      color: white;
+      padding: 85px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero-label {
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 5vw, 56px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #E0E8F2;
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 13px 22px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: white;
+    }
+
+    .outline-button {
+      display: inline-block;
+      border: 1px solid white;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: #687789;
+    }
+
+    /* DASHBOARD */
+
+    .dashboard {
+      background: var(--light);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 27px;
+      border-radius: 8px;
+      border: 1px solid #E3E8EF;
+      border-top: 4px solid var(--navy);
+    }
+
+    .stat-card h3 {
+      color: var(--navy);
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .stat-card p {
+      color: #687789;
+      font-size: 14px;
+    }
+
+    /* SERVICES */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      border: 1px solid #E1E6ED;
+      border-radius: 8px;
+      padding: 25px;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: #EDF2F8;
+      color: var(--navy);
+      border-radius: 8px;
+      font-size: 23px;
+      margin-bottom: 17px;
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #687789;
+      font-size: 14px;
+    }
+
+    .service-card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--blue);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* ASK SIR J */
+
+    .ask-section {
+      background: var(--light);
+    }
+
+    .ask-content {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      background: white;
+      border: 1px solid #E1E6ED;
+      border-radius: 10px;
+      padding: 40px 25px;
+    }
+
+    .ask-content h2 {
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .ask-content p {
+      color: #687789;
+      margin-bottom: 22px;
+    }
+
+    /* ABOUT */
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-content h2 {
+      color: var(--navy);
+      margin-bottom: 15px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #DCE5F0;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      nav {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .dashboard-grid,
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .dashboard-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .outline-button {
+        margin: 12px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="brand">
+          <span class="brand-symbol">∑</span>
+          <span>
+            SIR J'S
+            <small>MATHEMATICS TUTORIAL</small>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#learning">Learning Hub</a>
+          <a href="#ask">Ask Sir J</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="nav-button">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-label">WELCOME TO SIR J'S MATHEMATICS TUTORIAL</div>
+
+          <h1>Better Understanding. Brighter Future.</h1>
+
+          <p>
+            Discover mathematics through clear explanations,
+            guided lessons, meaningful practice, and personalized
+            learning experiences.
+          </p>
+
+          <a href="#learning" class="button">Explore Learning Hub</a>
+          <a href="#services" class="outline-button">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Welcome to Our Learning Community</h2>
+          <p>Your starting point for exploring mathematics.</p>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="stat-card">
+            <h3>Mathematics Lessons</h3>
+            <p>Explore organized lessons and explanations across different mathematical topics.</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>Guided Practice</h3>
+            <p>Develop your understanding through examples and practice exercises.</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>Personalized Support</h3>
+            <p>Submit your questions and receive guidance directly from your tutor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Explore Our Services</h2>
+          <p>Everything you need to support your mathematics learning.</p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">📚</div>
+            <h3>Learning Hub</h3>
+            <p>Read mathematics lessons, examples, and practice exercises.</p>
+            <a href="#learning">Explore Lessons →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">✏️</div>
+            <h3>Ask Sir J</h3>
+            <p>Submit your mathematics questions for personal guidance.</p>
+            <a href="#ask">Ask a Question →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Access mathematics video lessons and tutorials.</p>
+            <a href="#videos">Watch Lessons →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">📅</div>
+            <h3>Book a Session</h3>
+            <p>Learn more about requesting a personalized tutorial session.</p>
+            <a href="#bookings">Booking Information →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">👨‍🏫</div>
+            <h3>About Sir J</h3>
+            <p>Get to know your mathematics tutor and teaching approach.</p>
+            <a href="#about">Learn More →</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">✉️</div>
+            <h3>Contact</h3>
+            <p>Find out how to reach us for inquiries and assistance.</p>
+            <a href="#contact">Contact Us →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="learning">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Learning Hub</h2>
+          <p>Explore the different areas of mathematics.</p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Algebra and Functions</h3>
+            <p>Equations, expressions, graphs, and functions.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Geometry and Trigonometry</h3>
+            <p>Shapes, measurements, geometric reasoning, and trigonometry.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Statistics and Probability</h3>
+            <p>Data analysis, probability, and statistical concepts.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Number Theory</h3>
+            <p>Integers, divisibility, primes, and number patterns.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Calculus</h3>
+            <p>Limits, derivatives, and integration.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Problem Solving</h3>
+            <p>Mathematical investigations, reasoning, and applications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ask-section" id="ask">
+      <div class="container">
+        <div class="ask-content">
+          <h2>Have a Mathematics Question?</h2>
+          <p>
+            Submit your question to Sir J and receive personal
+            mathematical guidance and explanations.
+          </p>
+          <a href="#contact" class="button">Ask Sir J</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Video Lessons</h2>
+          <p>Mathematics video tutorials will be available here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="bookings">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Book a Tutorial Session</h2>
+          <p>Get personalized support for your mathematics learning.</p>
+          <a href="#contact" class="button">Inquire About a Session</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-content">
+          <h2>About Sir J's Mathematics Tutorial</h2>
+          <p>
+            Our goal is to make mathematics more understandable
+            through organized lessons, guided practice, and
+            personalized learning support.
+          </p>
+          <p style="margin-top: 12px;">
+            Better Understanding. Brighter Future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Get in Touch</h2>
+          <p>For tutorial inquiries and mathematics learning support,
+             contact Sir J through your preferred communication channel.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Sir J's Mathematics Tutorial. All rights reserved.</p>
+    <p>Better Understanding. Brighter Future.</p>
+  </footer>
+
+</body>
+</html>
