@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elementary Mathematics | Sir J's</title>
+
+<style>
+:root {
+  --navy: #102D55;
+  --blue: #183D68;
+  --gold: #D5A947;
+  --white: #FFFFFF;
+  --light: #F4F7FB;
+  --text: #263445;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+  background: var(--navy);
+}
+
+nav {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.brand-name {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.brand-name small {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+/* PAGE BANNER */
+
+.page-banner {
+  background: var(--navy);
+  color: white;
+  padding: 65px 0;
+}
+
+.breadcrumb {
+  color: var(--gold);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+}
+
+.page-banner h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 12px;
+}
+
+.page-banner p {
+  color: #E0E8F2;
+  max-width: 700px;
+  font-size: 16px;
+}
+
+/* GRADE LEVEL SECTION */
+
+.grade-section {
+  padding: 75px 0;
+  background: var(--light);
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #687789;
+}
+
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.grade-card {
+  background: white;
+  border: 1px solid #E1E6ED;
+  border-radius: 9px;
+  padding: 28px;
+  transition: 0.2s;
+}
+
+.grade-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.grade-number {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.grade-card h3 {
+  color: var(--navy);
+  font-size: 20px;
+  margin-bottom: 9px;
+}
+
+.grade-card p {
+  color: #687789;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.grade-status {
+  display: inline-block;
+  background: #EDF2F8;
+  color: var(--blue);
+  padding: 6px 11px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* LEARNING INFORMATION */
+
+.learning-section {
+  padding: 70px 0;
+}
+
+.learning-box {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.learning-box h2 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.learning-box p {
+  color: #687789;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+footer p {
+  color: #DCE5F0;
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .grade-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .grade-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+  <div class="container">
+    <nav>
+
+      <a href="index.html" class="brand">
+        <img src="sir-js-logo.png"
+             alt="Sir J's Mathematics Tutorial Logo">
+
+        <span class="brand-name">
+          SIR J'S
+          <small>MATHEMATICS TUTORIAL</small>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#learning">Learning Hub</a>
+        <a href="index.html#ask">Ask Sir J</a>
+        <a href="index.html#about">About</a>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE BANNER -->
+
+<section class="page-banner">
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> / Elementary Mathematics
+    </div>
+
+    <h1>Elementary Mathematics</h1>
+
+    <p>
+      Build a strong mathematical foundation through
+      meaningful lessons, guided examples, and engaging
+      learning activities.
+    </p>
+
+  </div>
+</section>
+
+<!-- GRADE SELECTION -->
+
+<section class="grade-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Choose Your Grade Level</h2>
+
+      <p>
+        Select your grade level to explore
+        mathematics learning resources.
+      </p>
+    </div>
+
+    <div class="grade-grid">
+
+      <div class="grade-card">
+        <div class="grade-number">1</div>
+        <h3>Grade 1 Mathematics</h3>
+        <p>
+          Explore numbers, counting, basic addition,
+          subtraction, shapes, and simple patterns.
+        </p>
+        <span class="grade-status">Lessons coming soon</span>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">2</div>
+        <h3>Grade 2 Mathematics</h3>
+        <p>
+          Develop skills in place value, basic operations,
+          measurement, time, and money.
+        </p>
+        <span class="grade-status">Lessons coming soon</span>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">3</div>
+        <h3>Grade 3 Mathematics</h3>
+        <p>
+          Strengthen multiplication, division,
+          fractions, measurement, and geometry.
+        </p>
+        <span class="grade-status">Lessons coming soon</span>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">4</div>
+        <h3>Grade 4 Mathematics</h3>
+        <p>
+          Explore larger numbers, fractions,
+          decimals, factors, and geometric concepts.
+        </p>
+        <span class="grade-status">Lessons coming soon</span>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">5</div>
+        <h3>Grade 5 Mathematics</h3>
+        <p>
+          Develop understanding of fractions,
+          decimals, percentages, measurement,
+          and problem solving.
+        </p>
+        <span class="grade-status">Lessons coming soon</span>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">6</div>
+        <h3>Grade 6 Mathematics</h3>
+        <p>
+          Strengthen skills in ratios, percentages,
+          integers, geometry, and advanced problem solving.
+        </p>
+        <span class="grade-status">Lessons coming soon</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING INFORMATION -->
+
+<section class="learning-section">
+  <div class="container">
+
+    <div class="learning-box">
+      <h2>Learn Mathematics Step by Step</h2>
+
+      <p>
+        Each grade level will eventually contain
+        organized mathematics lessons, key concepts,
+        worked examples, practice exercises,
+        and video tutorials.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2026 Sir J's Mathematics Tutorial. All rights reserved.</p>
+  <p>Better Understanding. Brighter Future.</p>
+</footer>
+
+</body>
+</html>
