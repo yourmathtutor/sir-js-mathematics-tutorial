@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Tutorial | Sir J's Mathematics Tutorial</title>
+
+<style>
+:root {
+  --navy: #102b50;
+  --gold: #e5b84b;
+  --light: #f4f7fb;
+  --ink: #26364a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background: white;
+}
+
+header {
+  background: var(--navy);
+  color: white;
+  padding: 14px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+}
+
+.brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+.hero {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 48px 18px;
+}
+
+.hero h1 {
+  color: var(--gold);
+  font-size: 34px;
+  margin: 0;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 12px auto;
+}
+
+main {
+  max-width: 1050px;
+  margin: auto;
+  padding: 35px 6%;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.intro h2 {
+  color: var(--navy);
+}
+
+.info {
+  background: var(--light);
+  padding: 20px;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.form-container {
+  background: white;
+  border: 1px solid #dce3ed;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.form-container iframe {
+  width: 100%;
+  height: 1700px;
+  border: none;
+}
+
+.fallback {
+  text-align: center;
+  margin: 22px 0;
+}
+
+.button {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 12px 20px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 22px;
+  margin-top: 35px;
+}
+
+@media(max-width:600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .form-container {
+    padding: 3px;
+  }
+
+  .form-container iframe {
+    height: 1900px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="sir-js-logo.png" alt="Sir J's Mathematics Tutorial logo">
+    <span>Sir J's Mathematics Tutorial</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="elementary.html">Elementary</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Book a Tutorial</h1>
+  <p>Take the next step toward better mathematical understanding.</p>
+  <p><strong>Better Understanding. Brighter Future.</strong></p>
+</section>
+
+<main>
+
+  <section class="intro">
+    <h2>Start Your Learning Journey</h2>
+    <p>
+      Request a mathematics tutorial session with Sir J.
+      Complete the booking form below and provide your preferred schedule.
+    </p>
+  </section>
+
+  <div class="info">
+    <strong>Booking Information</strong>
+    <ul>
+      <li>Complete all required information.</li>
+      <li>Choose your preferred tutorial schedule.</li>
+      <li>Submit your booking request.</li>
+      <li>Wait for confirmation before considering your session scheduled.</li>
+    </ul>
+  </div>
+
+  <div class="form-container">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdoayj4lA_nuWDreG2uetZQckx7M7-TXYxaFtGOzaEiCZZbHg/viewform?embedded=true"
+      title="Sir J's Mathematics Tutorial Booking Form"
+      loading="lazy">
+      Loading booking form...
+    </iframe>
+  </div>
+
+  <div class="fallback">
+    <p>Having trouble viewing the form?</p>
+    <a class="button"
+       href="https://forms.gle/LtrnmE84TCe5pNHB9"
+       target="_blank"
+       rel="noopener">
+       Open Booking Form
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Sir J's Mathematics Tutorial</p>
+  <p>Better Understanding. Brighter Future.</p>
+</footer>
+
+</body>
+</html>
