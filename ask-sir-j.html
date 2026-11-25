@@ -390,6 +390,137 @@ nav a:hover {
   font-size: 14px;
 }
 
+  
+/* MATHEMATICS QUESTION LIBRARY */
+
+.library-tools {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  max-width: 950px;
+  margin: 30px auto;
+}
+
+.library-tools input,
+.library-tools select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.library-tools input:focus,
+.library-tools select:focus {
+  outline: 2px solid var(--gold);
+  border-color: var(--gold);
+}
+
+.question-count {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.question-list {
+  max-width: 950px;
+  margin: auto;
+  display: grid;
+  gap: 18px;
+}
+
+.question-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.question-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.question-meta span {
+  background: var(--gold-light);
+  color: var(--navy);
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.question-card h3 {
+  color: var(--navy);
+  margin: 8px 0;
+  font-size: 19px;
+}
+
+.question-text {
+  background: var(--background);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.question-card details {
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.question-card summary {
+  color: var(--navy);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.solution-steps {
+  padding-left: 22px;
+}
+
+.solution-steps li {
+  margin: 12px 0;
+}
+
+.final-answer {
+  background: var(--gold-light);
+  padding: 14px;
+  border-left: 4px solid var(--gold);
+  border-radius: 7px;
+  margin: 18px 0;
+  font-weight: bold;
+}
+
+.key-concept {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.no-results {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+@media(max-width:700px) {
+  .library-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card {
+    padding: 18px;
+  }
+}
+
+  
 /* CLOSING MESSAGE */
 
 .closing {
@@ -676,29 +807,41 @@ footer p {
       <span class="topic">Calculus</span>
     </div>
 
-    <div class="library-empty">
+<div class="library-tools">
 
-      <div class="library-icon">?</div>
+  <input
+    type="search"
+    id="questionSearch"
+    placeholder="Search mathematics questions..."
+    aria-label="Search mathematics questions">
 
-      <h3>Our Mathematics Library Is Growing!</h3>
+  <select id="gradeFilter" aria-label="Filter by grade level">
+    <option value="all">All Grade Levels</option>
+    <option value="Grade 6">Grade 6</option>
+    <option value="Grade 7">Grade 7</option>
+    <option value="Grade 8">Grade 8</option>
+    <option value="Grade 9">Grade 9</option>
+    <option value="Grade 10">Grade 10</option>
+  </select>
 
-      <p>
-        We are preparing a collection of mathematics questions
-        and carefully explained solutions. Only questions reviewed
-        and approved for publication will appear here.
-      </p>
+  <select id="topicFilter" aria-label="Filter by topic">
+    <option value="all">All Topics</option>
+    <option value="Fractions">Fractions</option>
+    <option value="Integers">Integers</option>
+    <option value="Algebra">Algebra</option>
+    <option value="Geometry">Geometry</option>
+    <option value="Quadratic Equations">Quadratic Equations</option>
+  </select>
 
-      <p>
-        Be among the learners who help build our growing
-        mathematics learning community.
-      </p>
+</div>
 
-      <a href="#submit-question" class="button button-primary">
-        Submit Your Question
-      </a>
+<p id="questionCount" class="question-count"></p>
 
-    </div>
+<div id="questionList" class="question-list">
+  <p>Loading mathematics questions...</p>
+</div>
 
+    
   </div>
 </section>
 
@@ -722,6 +865,99 @@ footer p {
 </footer>
 
   <script src="questions.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const searchInput = document.getElementById("questionSearch");
+  const gradeFilter = document.getElementById("gradeFilter");
+  const topicFilter = document.getElementById("topicFilter");
+  const questionList = document.getElementById("questionList");
+  const questionCount = document.getElementById("questionCount");
+
+  function displayQuestions() {
+
+    const search = searchInput.value.toLowerCase();
+    const grade = gradeFilter.value;
+    const topic = topicFilter.value;
+
+    const filteredQuestions = mathQuestions.filter(function(q) {
+
+      const matchesSearch =
+        q.title.toLowerCase().includes(search) ||
+        q.question.toLowerCase().includes(search) ||
+        q.topic.toLowerCase().includes(search) ||
+        q.concept.toLowerCase().includes(search);
+
+      const matchesGrade = grade === "all" || q.grade === grade;
+      const matchesTopic = topic === "all" || q.topic === topic;
+
+      return matchesSearch && matchesGrade && matchesTopic;
+    });
+
+    questionCount.textContent =
+      filteredQuestions.length + " question(s) found";
+
+    if (filteredQuestions.length === 0) {
+      questionList.innerHTML =
+        '<div class="no-results">No matching questions found. Try another search or filter.</div>';
+      return;
+    }
+
+    questionList.innerHTML = filteredQuestions.map(function(q) {
+
+      const steps = q.steps.map(function(step) {
+        return "<li>" + step + "</li>";
+      }).join("");
+
+      return `
+        <article class="question-card">
+
+          <div class="question-meta">
+            <span>${q.grade}</span>
+            <span>${q.topic}</span>
+          </div>
+
+          <h3>${q.title}</h3>
+
+          <div class="question-text">
+            <strong>Question:</strong><br>
+            ${q.question}
+          </div>
+
+          <details>
+            <summary>View Step-by-Step Solution</summary>
+
+            <ol class="solution-steps">
+              ${steps}
+            </ol>
+
+            <div class="final-answer">
+              Final Answer: ${q.answer}
+            </div>
+
+            <p class="key-concept">
+              <strong>Key Concept:</strong> ${q.concept}
+            </p>
+
+          </details>
+
+        </article>
+      `;
+
+    }).join("");
+  }
+
+  searchInput.addEventListener("input", displayQuestions);
+  gradeFilter.addEventListener("change", displayQuestions);
+  topicFilter.addEventListener("change", displayQuestions);
+
+  displayQuestions();
+
+});
+</script>
+
   
 </body>
 </html>
