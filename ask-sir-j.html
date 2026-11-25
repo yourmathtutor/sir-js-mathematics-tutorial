@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ask Sir J | Mathematics Learning Center</title>
+
+<meta name="description" content="Ask mathematics questions, explore explanations, and improve your mathematical understanding with Sir J's Mathematics Tutorial.">
+
+<style>
+:root {
+  --navy: #102b50;
+  --navy-light: #183c68;
+  --gold: #e5b84b;
+  --gold-light: #fff8e7;
+  --white: #ffffff;
+  --background: #f5f7fb;
+  --text: #29384c;
+  --muted: #68778b;
+  --border: #e3e8ef;
+  --shadow: 0 8px 28px rgba(16,43,80,0.07);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+  background: var(--navy);
+  color: white;
+  padding: 13px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.brand img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(135deg, #102b50, #1b426e);
+  color: white;
+  text-align: center;
+  padding: 75px 20px 85px;
+}
+
+.hero-content {
+  max-width: 820px;
+  margin: auto;
+}
+
+.hero-label {
+  display: inline-block;
+  background: rgba(229,184,75,0.15);
+  color: var(--gold);
+  padding: 7px 17px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 17px;
+}
+
+.hero h1 {
+  font-size: 43px;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  color: white;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: #e5ebf4;
+  font-size: 16px;
+}
+
+.hero-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 23px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.button-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.button-primary:hover {
+  background: #f0cc70;
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  border: 1px solid rgba(255,255,255,0.65);
+  color: white;
+}
+
+.button-outline:hover {
+  background: white;
+  color: var(--navy);
+}
+
+/* GENERAL CONTENT */
+
+.container {
+  width: 88%;
+  max-width: 1120px;
+  margin: auto;
+}
+
+.section {
+  padding: 65px 0;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 35px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 29px;
+  margin: 0 0 10px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* LEARNING PROCESS */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.process-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.process-number {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.process-card h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.process-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* QUESTION FORM */
+
+.form-section {
+  background: white;
+  padding: 65px 0;
+}
+
+.form-intro {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.form-intro h2 {
+  color: var(--navy);
+  font-size: 29px;
+  margin: 0 0 12px;
+}
+
+.form-intro p {
+  color: var(--muted);
+}
+
+.form-notice {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  padding: 17px 20px;
+  background: var(--gold-light);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-card {
+  max-width: 850px;
+  margin: auto;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.form-top {
+  background: var(--navy);
+  color: white;
+  padding: 20px 25px;
+}
+
+.form-top h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.form-top p {
+  margin: 5px 0 0;
+  color: #d9e3ef;
+  font-size: 13px;
+}
+
+.form-frame {
+  padding: 8px;
+}
+
+.form-frame iframe {
+  width: 100%;
+  height: 1650px;
+  border: none;
+  display: block;
+}
+
+.form-fallback {
+  text-align: center;
+  padding: 15px 20px 25px;
+}
+
+/* Q&A LIBRARY */
+
+.library-section {
+  padding: 70px 0;
+  background: var(--background);
+}
+
+.library-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+
+.library-intro h2 {
+  color: var(--navy);
+  font-size: 29px;
+  margin: 0 0 10px;
+}
+
+.library-intro p {
+  color: var(--muted);
+}
+
+.library-topics {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0 35px;
+}
+
+.topic {
+  background: white;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  padding: 9px 16px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.library-empty {
+  max-width: 850px;
+  margin: auto;
+  padding: 45px 25px;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.library-icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 17px;
+  background: var(--gold-light);
+  color: var(--navy);
+  border-radius: 50%;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.library-empty h3 {
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.library-empty p {
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto 20px;
+  font-size: 14px;
+}
+
+/* CLOSING MESSAGE */
+
+.closing {
+  background: var(--navy);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.closing h2 {
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+
+.closing p {
+  color: #e5ebf4;
+  margin: 0;
+}
+
+/* FOOTER */
+
+footer {
+  background: #0b203c;
+  color: white;
+  text-align: center;
+  padding: 24px 15px;
+  font-size: 13px;
+}
+
+footer p {
+  margin: 5px;
+  color: #d1dbe8;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 800px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .hero {
+    padding: 55px 18px 65px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 91%;
+  }
+
+  .section {
+    padding: 45px 0;
+  }
+
+  .section-heading h2,
+  .form-intro h2,
+  .library-intro h2 {
+    font-size: 24px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-section {
+    padding: 45px 0;
+  }
+
+  .form-top {
+    padding: 17px;
+  }
+
+  .form-frame {
+    padding: 3px;
+  }
+
+  .form-frame iframe {
+    height: 1800px;
+  }
+
+  .library-section {
+    padding: 50px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="brand">
+    <img src="sir-js-logo.png" alt="Sir J's Mathematics Tutorial logo">
+    <span>Sir J's Mathematics Tutorial</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="elementary.html">Elementary</a>
+    <a href="booking.html">Bookings</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="hero-label">
+      YOUR MATHEMATICS LEARNING SPACE
+    </div>
+
+    <h1>
+      Welcome to <span>Ask Sir J</span>
+    </h1>
+
+    <p>
+      Every mathematical question deserves an explanation.
+      Share what you find difficult, explore new ideas,
+      and develop a deeper understanding of mathematics.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#submit-question" class="button button-primary">
+        Ask a Question
+      </a>
+
+      <a href="#question-library" class="button button-outline">
+        Explore Q&A Library
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>How Ask Sir J Works</h2>
+      <p>
+        A simple learning process designed to help you
+        understand mathematics one question at a time.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <h3>Ask Your Question</h3>
+        <p>
+          Share a mathematics question or identify
+          a concept you find difficult to understand.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <h3>Submit for Review</h3>
+        <p>
+          Your question will be received privately
+          and reviewed by Sir J.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <h3>Understand the Solution</h3>
+        <p>
+          Sir J prepares an explanation to help
+          you understand the mathematical ideas.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUESTION SUBMISSION -->
+
+<section class="form-section" id="submit-question">
+
+  <div class="container">
+
+    <div class="form-intro">
+      <h2>Have a Mathematics Question?</h2>
+      <p>
+        Don't hesitate to ask. Whether it is a basic concept,
+        a challenging equation, or a difficult word problem,
+        this is your space to ask and learn.
+      </p>
+    </div>
+
+    <div class="form-notice">
+      <strong>Before submitting:</strong>
+      Explain your question clearly and identify the part
+      you find difficult. Do not include your full name,
+      contact information, or other personal details in your question.
+    </div>
+
+    <div class="form-card">
+
+      <div class="form-top">
+        <h3>Mathematics Question Submission</h3>
+        <p>Complete the form below to send your question to Sir J.</p>
+      </div>
+
+      <div class="form-frame">
+
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSc5W4NbNAqNXmlr-kIUzMk9gQLH5jAGIo_2TWlCiRJepm6Cuw/viewform?embedded=true"
+          title="Ask Sir J Mathematics Question Submission Form"
+          loading="lazy">
+          Loading question form...
+        </iframe>
+
+      </div>
+
+      <div class="form-fallback">
+        <p>Having trouble viewing the form?</p>
+
+        <a
+          class="button button-primary"
+          href="https://forms.gle/hth97CYC7kpLhvTa8"
+          target="_blank"
+          rel="noopener">
+          Open Question Form
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- MATHEMATICS Q&A LIBRARY -->
+
+<section class="library-section" id="question-library">
+
+  <div class="container">
+
+    <div class="library-intro">
+      <h2>Mathematics Q&A Library</h2>
+
+      <p>
+        Learn from questions, explore mathematical concepts,
+        and discover step-by-step explanations prepared by Sir J.
+      </p>
+    </div>
+
+    <div class="library-topics">
+      <span class="topic">Elementary Mathematics</span>
+      <span class="topic">Algebra</span>
+      <span class="topic">Geometry</span>
+      <span class="topic">Trigonometry</span>
+      <span class="topic">Statistics</span>
+      <span class="topic">Calculus</span>
+    </div>
+
+    <div class="library-empty">
+
+      <div class="library-icon">?</div>
+
+      <h3>Our Mathematics Library Is Growing!</h3>
+
+      <p>
+        We are preparing a collection of mathematics questions
+        and carefully explained solutions. Only questions reviewed
+        and approved for publication will appear here.
+      </p>
+
+      <p>
+        Be among the learners who help build our growing
+        mathematics learning community.
+      </p>
+
+      <a href="#submit-question" class="button button-primary">
+        Submit Your Question
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CLOSING MESSAGE -->
+
+<section class="closing">
+  <h2>Keep Asking. Keep Exploring.</h2>
+
+  <p>
+    Mathematics becomes meaningful when you understand
+    not only the answer, but also the reasoning behind it.
+  </p>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <p><strong>Sir J's Mathematics Tutorial</strong></p>
+  <p>Better Understanding. Brighter Future.</p>
+  <p>© 2026 Sir J's Mathematics Tutorial. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
