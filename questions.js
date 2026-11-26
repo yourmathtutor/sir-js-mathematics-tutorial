@@ -106,6 +106,29 @@ const mathQuestions = [
     answer: "x = 2 or x = 3",
 
     concept: "The zero-product property states that if the product of two factors is zero, at least one of the factors must be zero."
+  }, 
+  
+  {
+    id: 6,
+    grade: "Junior High School",
+    topic: "Algebra",
+    title: "How do we solve the equation 2x + 5 = 17?",
+
+    question: "Solve: 2x + 5 = 17.",
+
+    steps: [
+      "Start with the given equation: 2x + 5 = 17.",
+      "Subtract 5 from both sides: 2x = 17 - 5.",
+      "Simplify: 2x = 12.",
+      "Divide both sides by 2: x = 12/2.",
+      "Therefore, x = 6.",
+      "Check: 2(6) + 5 = 17, so the solution is correct."
+    ],
+
+    answer: "x = 6",
+
+    concept: "Use inverse operations to isolate the variable while maintaining equality. Verify the answer by substituting it into the original equation."
   }
 
-];
+
+]; 
